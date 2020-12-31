@@ -1,12 +1,14 @@
 {
-    "name": "laravel/laravel",
+    "name": "jovertical/refresher.dev",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Refresh your development skills through development focused tests created by others or by yourself.",
     "keywords": [
-        "framework",
-        "laravel"
+        "webapp",
+        "coding-test",
+        "code-katas",
+        "interview-prep"
     ],
-    "license": "MIT",
+    "license": "proprietary",
     "require": {
         "php": "^7.3|^8.0",
         "fideloper/proxy": "^4.4",
