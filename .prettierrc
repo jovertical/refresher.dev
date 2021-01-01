@@ -6,5 +6,13 @@
     "svelteStrictMode": true,
     "svelteBracketNewLine": true,
     "svelteAllowShorthand": false,
-    "trailingComma": "all"
+    "trailingComma": "all",
+    "overrides": [
+        {
+            "files": "*.svelte",
+            "options": {
+                "printWidth": 120
+            }
+        }
+    ]
 }

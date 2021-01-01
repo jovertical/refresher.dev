@@ -4,9 +4,7 @@
     export let name;
     export let error;
 
-    $: props = (({ onChange, label, name, errors, ...other }) => other)(
-        $$props,
-    );
+    $: props = (({ onChange, label, name, errors, ...other }) => other)($$props);
 </script>
 
 <div>
@@ -25,9 +23,7 @@
         />
 
         {#if error}
-            <div
-                class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
-            >
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                 <!-- Heroicon name: exclamation-circle -->
                 <svg
                     class="h-5 w-5 text-red-500"
