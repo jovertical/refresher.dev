@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 
-class DashboardController extends Controller
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance

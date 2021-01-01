@@ -1,10 +1,12 @@
 <script>
-export let onChange;
-export let label;
-export let name;
-export let error;
+    export let onChange;
+    export let label;
+    export let name;
+    export let error;
 
-$: props = (({ onChange, label, name, errors, ...other }) => other)($$props);
+    $: props = (({ onChange, label, name, errors, ...other }) => other)(
+        $$props,
+    );
 </script>
 
 <div>
