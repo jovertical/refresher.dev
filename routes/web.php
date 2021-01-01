@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', DashboardController::class);
+Route::get('/', WelcomeController::class);
+Route::get('/dashboard', DashboardController::class);
+
+require __DIR__ . '/auth.php';
