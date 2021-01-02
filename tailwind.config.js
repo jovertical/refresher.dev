@@ -2,7 +2,7 @@ let defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     purge: [
-        './resources/js/{Pages,Shared}/**/*.svelte',
+        './resources/js/{pages,components}/**/*.svelte',
         './resources/views/**/*.blade.php',
     ],
     darkMode: 'media',

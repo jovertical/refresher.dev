@@ -1,5 +1,5 @@
 <script>
-    import Icon from '~/Shared/Icon';
+    import Icon from '~/components/Icon';
 </script>
 
 <div class="flex-1 flex">

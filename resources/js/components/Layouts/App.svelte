@@ -1,10 +1,10 @@
 <script>
     import { InertiaLink, page } from '@inertiajs/inertia-svelte';
-    import Icon from '~/Shared/Icon';
-    import MobileSidebar from '~/Shared/MobileSidebar';
-    import Search from '~/Shared/Search';
-    import Sidebar from '~/Shared/Sidebar';
-    import UserMenu from '~/Shared/UserMenu';
+    import Icon from '~/components/Icon';
+    import MobileSidebar from '~/components/MobileSidebar';
+    import Search from '~/components/Search';
+    import Sidebar from '~/components/Sidebar';
+    import UserMenu from '~/components/UserMenu';
 
     let route = window.route;
 

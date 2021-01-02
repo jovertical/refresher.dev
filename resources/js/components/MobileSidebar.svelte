@@ -1,8 +1,8 @@
 <script>
     import clickOutside from '~/directives/clickOutside';
-    import Icon from '~/Shared/Icon';
-    import Logo from '~/Shared/Logo';
-    import NavigationLink from '~/Shared/NavigationLink';
+    import Icon from '~/components/Icon';
+    import Logo from '~/components/Logo';
+    import NavigationLink from '~/components/NavigationLink';
 
     export let open;
 </script>

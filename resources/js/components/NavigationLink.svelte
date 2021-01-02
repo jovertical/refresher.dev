@@ -1,6 +1,6 @@
 <script>
     import { InertiaLink } from '@inertiajs/inertia-svelte';
-    import Icon from '~/Shared/Icon';
+    import Icon from '~/components/Icon';
 
     export let icon;
     export let link;

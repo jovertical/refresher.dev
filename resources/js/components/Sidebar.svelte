@@ -1,7 +1,7 @@
 <script>
     import { InertiaLink } from '@inertiajs/inertia-svelte';
-    import Logo from '~/Shared/Logo';
-    import NavigationLink from '~/Shared/NavigationLink';
+    import Logo from '~/components/Logo';
+    import NavigationLink from '~/components/NavigationLink';
 </script>
 
 <div class="hidden md:flex md:flex-shrink-0">

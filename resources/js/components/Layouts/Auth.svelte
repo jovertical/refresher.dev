@@ -1,5 +1,5 @@
 <script>
-    import Guest from '~/Layouts/Guest';
+    import Guest from '~/components/Layouts/Guest';
 
     export let title;
 </script>
