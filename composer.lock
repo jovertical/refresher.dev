@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93e813e679e8f3c20e046a52203c5918",
+    "content-hash": "da4cab9981a6ff76ee7973b565b4ed84",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5124,6 +5124,80 @@
                 "source": "https://github.com/barryvdh/ReflectionDocBlock/tree/v2.0.6"
             },
             "time": "2018-12-13T10:34:14+00:00"
+        },
+        {
+            "name": "claudiodekker/inertia-laravel-testing",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/claudiodekker/inertia-laravel-testing.git",
+                "reference": "ff97339f43d85a33df70ab0d2dd58852118f2a3d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/claudiodekker/inertia-laravel-testing/zipball/ff97339f43d85a33df70ab0d2dd58852118f2a3d",
+                "reference": "ff97339f43d85a33df70ab0d2dd58852118f2a3d",
+                "shasum": ""
+            },
+            "require": {
+                "inertiajs/inertia-laravel": "^v0.3",
+                "laravel/framework": "^6.0|^7.0|^8.0",
+                "php": "^7.2|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ClaudioDekker\\Inertia\\InertiaTestingServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ClaudioDekker\\Inertia\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Claudio Dekker",
+                    "email": "claudio@ubient.net",
+                    "homepage": "https://dekker.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Testing helpers for https://github.com/inertiajs/inertia-laravel",
+            "homepage": "https://github.com/claudiodekker/inertia-laravel-testing",
+            "keywords": [
+                "claudiodekker",
+                "helpers",
+                "inertia",
+                "laravel",
+                "phpunit",
+                "testing"
+            ],
+            "support": {
+                "issues": "https://github.com/claudiodekker/inertia-laravel-testing/issues",
+                "source": "https://github.com/claudiodekker/inertia-laravel-testing/tree/1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/claudiodekker",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/reinink",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-11-30T13:46:59+00:00"
         },
         {
             "name": "composer/ca-bundle",

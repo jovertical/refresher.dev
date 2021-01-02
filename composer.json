@@ -21,6 +21,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",
+        "claudiodekker/inertia-laravel-testing": "^1.2",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.13.0",
         "friendsofphp/php-cs-fixer": "^2.16",
