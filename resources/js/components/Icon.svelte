@@ -7,6 +7,7 @@
     class="{size === 'small' ? 'w-5 h-5' : 'w-6 h-6'} {$$props.class || ''}"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="{size === 'small' ? '0 0 20 20' : '0 0 24 24'}"
+    fill="none"
     stroke="currentColor"
     aria-hidden="true"
 >

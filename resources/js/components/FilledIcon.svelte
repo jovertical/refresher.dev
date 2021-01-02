@@ -8,6 +8,7 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="{size === 'small' ? '0 0 20 20' : '0 0 24 24'}"
     fill="currentColor"
+    stroke="none"
     aria-hidden="true"
 >
     {#if name === 'check-circle'}
