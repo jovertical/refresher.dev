@@ -33,7 +33,7 @@
             onChange="{form.handleChange}"
         />
 
-        <div class="flex items-center justify-end">
+        <div class="flex items-center justify-center">
             <Link route="login" class="font-medium text-indigo-600 hover:text-indigo-500 text-sm">
                 Back to login
             </Link>

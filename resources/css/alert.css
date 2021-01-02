@@ -9,11 +9,3 @@
 .alert-text.success {
     @apply text-green-800;
 }
-
-.alert-close-button {
-    @apply inline-flex rounded-md p-1.5 focus:outline-none focus:ring-2 focus:ring-offset-2;
-}
-
-.alert-close-button.success {
-    @apply bg-green-50  text-green-500 hover:bg-green-100  focus:ring-offset-green-50 focus:ring-green-600 !important;
-}
