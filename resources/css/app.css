@@ -1,6 +1,7 @@
 @import url('https://rsms.me/inter/inter.css');
 
 /* Components */
+@import './alert.css';
 @import './form.css';
 
 @tailwind base;

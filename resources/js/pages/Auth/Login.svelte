@@ -1,6 +1,6 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
-    import { page } from '@inertiajs/inertia-svelte';
+    import Button from '~/components/Button';
     import Auth from '~/components/Layouts/Auth';
     import Link from '~/components/Link';
     import TextInput from '~/components/TextInput';
@@ -60,19 +60,17 @@
             </div>
 
             <div class="text-sm">
-                <a href="/" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <Link
+                    route="password.request"
+                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                >
                     Forgot your password?
-                </a>
+                </Link>
             </div>
         </div>
 
         <div>
-            <button
-                type="submit"
-                class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-                Login
-            </button>
+            <Button>Login</Button>
         </div>
     </form>
 </Auth>
