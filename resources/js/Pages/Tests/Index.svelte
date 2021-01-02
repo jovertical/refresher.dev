@@ -1,11 +1,9 @@
 <script>
-    import Layout from '~/Shared/Layout';
+    import App from '~/Layouts/App';
 </script>
 
-<Layout title="Tests">
+<App title="Tests">
     <div class="py-4">
-        <div
-            class="border-4 border-dashed border-gray-200 rounded-lg h-96"
-        ></div>
+        <div class="border-4 border-dashed border-gray-200 rounded-lg h-96"></div>
     </div>
-</Layout>
+</App>

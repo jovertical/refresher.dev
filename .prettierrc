@@ -11,7 +11,7 @@
         {
             "files": "*.svelte",
             "options": {
-                "printWidth": 120
+                "printWidth": 100
             }
         }
     ]
