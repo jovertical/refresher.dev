@@ -1,21 +1,34 @@
 <script>
-    import { page } from '@inertiajs/inertia-svelte';
+    import { InertiaLink, page } from '@inertiajs/inertia-svelte';
     import Guest from '~/components/Layouts/Guest';
-    import Link from '~/components/Link';
+
+    let route = window.route;
 </script>
 
 <Guest>
     <div class="fixed top-0 inset-x-0 w-full">
         <div class="flex items-center justify-end space-x-6 h-20 px-10">
             {#if $page.props.auth.guest}
-                <Link class="text-gray-800 underline hover:no-underline" route="login">Login</Link>
-                <Link class="text-gray-800 underline hover:no-underline" route="register">
+                <InertiaLink
+                    class="text-gray-800 underline hover:no-underline"
+                    href="{route('login')}"
+                >
+                    Login
+                </InertiaLink>
+
+                <InertiaLink
+                    class="text-gray-800 underline hover:no-underline"
+                    href="{route('register')}"
+                >
                     Register
-                </Link>
+                </InertiaLink>
             {:else}
-                <Link class="text-gray-800 underline hover:no-underline" route="home">
+                <InertiaLink
+                    class="text-gray-800 underline hover:no-underline"
+                    href="{route('home')}"
+                >
                     Dashboard
-                </Link>
+                </InertiaLink>
             {/if}
         </div>
     </div>

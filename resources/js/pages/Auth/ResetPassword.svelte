@@ -1,13 +1,15 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
+    import { InertiaLink } from '@inertiajs/inertia-svelte';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/components/Button';
     import Auth from '~/components/Layouts/Auth';
-    import Link from '~/components/Link';
     import TextInput from '~/components/TextInput';
     import { createForm } from '~/stores/form';
 
     export let errors = {};
+
+    let route = window.route;
 
     let form = createForm({
         email: $page.props.email,
@@ -51,9 +53,12 @@
         />
 
         <div class="flex items-center justify-end">
-            <Link route="login" class="font-medium text-indigo-600 hover:text-indigo-500 text-sm">
+            <InertiaLink
+                class="font-medium text-indigo-600 hover:text-indigo-500 text-sm"
+                href="{route('login')}"
+            >
                 Back to login
-            </Link>
+            </InertiaLink>
         </div>
 
         <div>

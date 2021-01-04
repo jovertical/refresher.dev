@@ -2,7 +2,6 @@
     import { Inertia } from '@inertiajs/inertia';
     import Button from '~/components/Button';
     import Auth from '~/components/Layouts/Auth';
-    import Link from '~/components/Link';
     import TextInput from '~/components/TextInput';
     import { createForm } from '~/stores/form';
 

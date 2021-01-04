@@ -1,12 +1,14 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
+    import { InertiaLink } from '@inertiajs/inertia-svelte';
     import Button from '~/components/Button';
     import Auth from '~/components/Layouts/Auth';
-    import Link from '~/components/Link';
     import TextInput from '~/components/TextInput';
     import { createForm } from '~/stores/form';
 
     export let errors = {};
+
+    let route = window.route;
 
     let form = createForm({
         name: '',
@@ -23,7 +25,12 @@
 <Auth title="Sign up to get started">
     <span slot="helper">
         Already have an account?
-        <Link route="login" class="font-medium text-indigo-600 hover:text-indigo-500">login</Link>
+        <InertiaLink
+            class="font-medium text-indigo-600 hover:text-indigo-500"
+            href="{route('login')}"
+        >
+            login
+        </InertiaLink>
     </span>
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
