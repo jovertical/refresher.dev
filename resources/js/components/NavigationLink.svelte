@@ -1,21 +1,14 @@
 <script>
     import { InertiaLink } from '@inertiajs/inertia-svelte';
-    import Icon from '~/components/Icon';
 
-    export let icon;
-    export let link;
-    export let text;
-    export let compact = false;
+    export let route;
 
-    let route = window.route;
-
-    let active = route().current(link + '*');
+    let active = window.route().current(route + '*');
 </script>
 
 <InertiaLink
-    href="{route(link)}"
-    class="group flex items-center px-2 py-2 {compact ? 'text-sm' : 'text-base'} font-medium rounded-md {active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}"
+    href="{window.route(route)}"
+    class="block px-3 py-2 rounded-md font-medium {active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'} {$$props.class}"
 >
-    <Icon class="text-gray-300 {compact ? 'mr-3' : 'mr-4'}" name="{icon}" />
-    <span>{text}</span>
+    <slot />
 </InertiaLink>

@@ -1,3 +1,4 @@
+let colors = require('tailwindcss/colors');
 let defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
