@@ -1,5 +1,8 @@
 {
     "css.validate": false,
     "editor.tabSize": 4,
-    "files.associations": { "*.svelte": "html" }
+    "files.associations": { "*.svelte": "html" },
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    }
 }

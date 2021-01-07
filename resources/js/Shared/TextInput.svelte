@@ -3,10 +3,11 @@
 
     export let onChange;
     export let label;
+    export let type = 'text';
     export let name;
     export let error;
 
-    $: props = (({ onChange, label, name, errors, ...other }) => other)($$props);
+    $: props = (({ onChange, label, type, name, errors, ...other }) => other)($$props);
 </script>
 
 <div>
@@ -15,6 +16,7 @@
     <div class="mt-1 relative rounded-md shadow-sm">
         <input
             id="{name}"
+            type="{type}"
             name="{name}"
             aria-invalid="{!!error}"
             aria-describedby="{name + '-error'}"

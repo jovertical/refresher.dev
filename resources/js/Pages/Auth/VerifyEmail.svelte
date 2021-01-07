@@ -28,7 +28,7 @@
         </form>
 
         <form on:submit|preventDefault="{handleSubmit}">
-            <Button>Resend Verification Email</Button>
+            <Button class="w-full" type="submit">Resend Verification Email</Button>
         </form>
     </div>
 </Auth>

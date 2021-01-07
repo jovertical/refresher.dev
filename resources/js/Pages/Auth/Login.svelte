@@ -22,12 +22,12 @@
 
 <Auth title="Login to your account">
     <span slot="helper">
-        Not registered with us yet?
+        Don't have an account yet?
         <InertiaLink
             class="font-medium text-indigo-600 hover:text-indigo-500"
             href="{route('register')}"
         >
-            sign up
+            register
         </InertiaLink>
     </span>
 
@@ -74,8 +74,6 @@
             </div>
         </div>
 
-        <div>
-            <Button>Login</Button>
-        </div>
+        <Button class="w-full" type="submit">Login</Button>
     </form>
 </Auth>

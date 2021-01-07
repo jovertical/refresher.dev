@@ -31,8 +31,6 @@
             onChange="{form.handleChange}"
         />
 
-        <div>
-            <Button>Confirm</Button>
-        </div>
+        <Button class="w-full" type="submit">Confirm</Button>
     </form>
 </Auth>

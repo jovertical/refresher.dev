@@ -1,11 +1,11 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
-    import { InertiaLink } from '@inertiajs/inertia-svelte';
+    import { InertiaLink, page } from '@inertiajs/inertia-svelte';
     import Icon from '~/Shared/Icon';
     import NavigationLink from '~/Shared/NavigationLink';
     import UserMenu from '~/Shared/UserMenu';
 
-    let route = window.route;
+    let { route } = window;
 
     let open = false;
 
@@ -75,25 +75,31 @@
                     </div>
 
                     <div class="ml-3">
-                        <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-                        <div class="text-sm font-medium leading-none text-gray-400">
-                            tom@example.com
+                        <div class="text-base font-medium leading-none text-white">
+                            {$page.props.auth.user.name}
+                        </div>
+
+                        <div class="text-sm font-medium leading-none text-gray-400 mt-2">
+                            {$page.props.auth.user.email}
                         </div>
                     </div>
                 </div>
 
                 <div class="mt-3 px-2 space-y-1">
-                    <a
-                        href="{'#'}"
+                    <InertiaLink
+                        href="{route('settings.profile.edit')}"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                     >
-                        Your Profile</a>
-                    <a
-                        href="{'#'}"
+                        Your Profile
+                    </InertiaLink>
+
+                    <InertiaLink
+                        href="{route('settings.password.edit')}"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                     >
-                        Settings
-                    </a>
+                        Password
+                    </InertiaLink>
+
                     <a
                         href="{'#'}"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"

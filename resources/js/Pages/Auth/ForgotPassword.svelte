@@ -44,8 +44,6 @@
             </InertiaLink>
         </div>
 
-        <div>
-            <Button>Email Password Reset Link</Button>
-        </div>
+        <Button class="w-full" type="submit">Email Password Reset Link</Button>
     </form>
 </Auth>

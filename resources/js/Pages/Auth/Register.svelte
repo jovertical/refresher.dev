@@ -11,10 +11,10 @@
     let route = window.route;
 
     let form = createForm({
-        name: '',
+        first_name: '',
+        last_name: '',
         email: '',
         password: '',
-        password_confirmation: '',
     });
 
     function handleSubmit() {
@@ -35,11 +35,18 @@
 
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
         <TextInput
-            label="Name"
-            name="name"
-            type="text"
-            value="{$form.name}"
-            error="{errors.name}"
+            label="First name"
+            name="first_name"
+            value="{$form.first_name}"
+            error="{errors.first_name}"
+            onChange="{form.handleChange}"
+        />
+
+        <TextInput
+            label="Last name"
+            name="last_name"
+            value="{$form.last_name}"
+            error="{errors.last_name}"
             onChange="{form.handleChange}"
         />
 
@@ -61,17 +68,6 @@
             onChange="{form.handleChange}"
         />
 
-        <TextInput
-            label="Confirm Password"
-            name="password_confirmation"
-            type="password"
-            value="{$form.password_confirmation}"
-            error="{errors.password_confirmation}"
-            onChange="{form.handleChange}"
-        />
-
-        <div>
-            <Button>Sign up</Button>
-        </div>
+        <Button class="w-full" type="submit">Register</Button>
     </form>
 </Auth>
