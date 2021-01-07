@@ -3,6 +3,7 @@
     import { InertiaLink, page } from '@inertiajs/inertia-svelte';
     import Icon from '~/Shared/Icon';
     import NavigationLink from '~/Shared/NavigationLink';
+    import StatusNotification from '~/Shared/StatusNotification';
     import UserMenu from '~/Shared/UserMenu';
 
     let { route } = window;
@@ -67,20 +68,28 @@
             <div class="pt-4 pb-3 border-t border-gray-700">
                 <div class="flex items-center px-5">
                     <div class="flex-shrink-0">
-                        <img
-                            class="h-10 w-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                        />
+                        <span
+                            class="inline-block h-10 w-10 rounded-full overflow-hidden bg-gray-100"
+                        >
+                            <svg
+                                class="h-full w-full text-gray-300"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                                ></path>
+                            </svg>
+                        </span>
                     </div>
 
                     <div class="ml-3">
                         <div class="text-base font-medium leading-none text-white">
-                            {$page.props.auth.user.name}
+                            {$page.props.auth.user?.name}
                         </div>
 
                         <div class="text-sm font-medium leading-none text-gray-400 mt-2">
-                            {$page.props.auth.user.email}
+                            {$page.props.auth.user?.email}
                         </div>
                     </div>
                 </div>
@@ -115,6 +124,10 @@
     <main>
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <slot />
+
+            {#if $page.props.status}
+                <StatusNotification {...$page.props.status} />
+            {/if}
         </div>
     </main>
 </div>

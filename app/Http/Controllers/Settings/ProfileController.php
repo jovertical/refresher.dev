@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Settings;
 
+use App\Enums\Status;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -51,6 +52,10 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->update($formData);
 
-        return back();
+        return back()->with('status', [
+            'status' => Status::Success,
+            'title'  => __('Successfully updated'),
+            'body'   => __('Your profile information has been updated')
+        ]);
     }
 }

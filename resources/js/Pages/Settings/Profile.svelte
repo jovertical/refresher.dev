@@ -39,7 +39,7 @@
                     </div>
 
                     <div class="mt-6 grid grid-cols-4 gap-6">
-                        <div class="col-span-2">
+                        <div class="col-span-4 sm:col-span-2">
                             <TextInput
                                 label="First name"
                                 name="first_name"
@@ -49,7 +49,7 @@
                             />
                         </div>
 
-                        <div class="col-span-2">
+                        <div class="col-span-4 sm:col-span-2">
                             <TextInput
                                 label="Last name"
                                 name="last_name"
@@ -59,7 +59,7 @@
                             />
                         </div>
 
-                        <div class="col-span-3">
+                        <div class="col-span-4 sm:col-span-3">
                             <TextInput
                                 label="Email address"
                                 name="email"
