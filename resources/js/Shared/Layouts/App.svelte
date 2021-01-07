@@ -1,9 +1,9 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
-    import Icon from '~/components/Icon';
-    import NavigationLink from '~/components/NavigationLink';
-    import UserMenu from '~/components/UserMenu';
+    import Icon from '~/Shared/Icon';
+    import NavigationLink from '~/Shared/NavigationLink';
+    import UserMenu from '~/Shared/UserMenu';
 
     let route = window.route;
 

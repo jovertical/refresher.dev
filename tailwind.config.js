@@ -1,9 +1,8 @@
-let colors = require('tailwindcss/colors');
 let defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     purge: [
-        './resources/js/{pages,components}/**/*.svelte',
+        './resources/js/{Pages,Shared}/**/*.svelte',
         './resources/views/**/*.blade.php',
     ],
     darkMode: 'media',

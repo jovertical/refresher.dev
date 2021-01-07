@@ -1,7 +1,7 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
     import Button from '~/Shared/Button';
-    import Auth from '~/Layouts/Auth';
+    import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 

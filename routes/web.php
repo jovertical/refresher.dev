@@ -20,4 +20,5 @@ Route::get('/', WelcomeController::class);
 Route::get('/dashboard', HomeController::class)->name('home');
 Route::resource('tests', TestController::class);
 
+require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';

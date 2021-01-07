@@ -3,7 +3,7 @@
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
-    import Auth from '~/Layouts/Auth';
+    import Auth from '~/Shared/Layouts/Auth';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 

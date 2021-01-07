@@ -1,7 +1,7 @@
 <script>
     import { page } from '@inertiajs/inertia-svelte';
-    import Alert from '~/components/Alert';
-    import Guest from '~/components/Layouts/Guest';
+    import Alert from '~/Shared/Alert';
+    import Guest from '~/Shared/Layouts/Guest';
 
     export let title;
 </script>

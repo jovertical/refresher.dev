@@ -1,5 +1,5 @@
 <script>
-    import FilledIcon from '~/components/FilledIcon';
+    import FilledIcon from '~/Shared/FilledIcon';
 
     export let onChange;
     export let label;

@@ -9,6 +9,6 @@ new App({
     target: el,
     props: {
         initialPage: JSON.parse(el.dataset.page),
-        resolveComponent: name => import(`./pages/${name}.svelte`),
+        resolveComponent: name => import(`./Pages/${name}.svelte`),
     },
 });
