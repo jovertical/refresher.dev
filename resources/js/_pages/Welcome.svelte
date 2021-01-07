@@ -1,6 +1,6 @@
 <script>
     import { InertiaLink, page } from '@inertiajs/inertia-svelte';
-    import Guest from '~/components/Layouts/Guest';
+    import Guest from '~/Layouts/Guest';
 
     let route = window.route;
 </script>

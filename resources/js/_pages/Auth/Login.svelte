@@ -1,9 +1,9 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
-    import Button from '~/components/Button';
-    import Auth from '~/components/Layouts/Auth';
-    import TextInput from '~/components/TextInput';
+    import Button from '~/Shared/Button';
+    import Auth from '~/Layouts/Auth';
+    import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 
     export let errors = {};

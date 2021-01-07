@@ -1,10 +1,9 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
-    import { page } from '@inertiajs/inertia-svelte';
-    import Button from '~/components/Button';
-    import Auth from '~/components/Layouts/Auth';
-    import TextInput from '~/components/TextInput';
+    import Button from '~/Shared/Button';
+    import Auth from '~/Layouts/Auth';
+    import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 
     export let errors = {};
@@ -12,19 +11,38 @@
     let route = window.route;
 
     let form = createForm({
-        email: $page.props.email,
+        name: '',
+        email: '',
         password: '',
         password_confirmation: '',
-        token: $page.props.token,
     });
 
     function handleSubmit() {
-        Inertia.post(route('password.update'), $form);
+        Inertia.post(route('register'), $form);
     }
 </script>
 
-<Auth title="Reset password">
+<Auth title="Sign up to get started">
+    <span slot="helper">
+        Already have an account?
+        <InertiaLink
+            class="font-medium text-indigo-600 hover:text-indigo-500"
+            href="{route('login')}"
+        >
+            login
+        </InertiaLink>
+    </span>
+
     <form class="space-y-6" on:submit|preventDefault="{handleSubmit}">
+        <TextInput
+            label="Name"
+            name="name"
+            type="text"
+            value="{$form.name}"
+            error="{errors.name}"
+            onChange="{form.handleChange}"
+        />
+
         <TextInput
             label="Email address"
             name="email"
@@ -52,17 +70,8 @@
             onChange="{form.handleChange}"
         />
 
-        <div class="flex items-center justify-end">
-            <InertiaLink
-                class="font-medium text-indigo-600 hover:text-indigo-500 text-sm"
-                href="{route('login')}"
-            >
-                Back to login
-            </InertiaLink>
-        </div>
-
         <div>
-            <Button>Reset Password</Button>
+            <Button>Sign up</Button>
         </div>
     </form>
 </Auth>

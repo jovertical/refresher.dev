@@ -1,8 +1,8 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
-    import Button from '~/components/Button';
-    import Auth from '~/components/Layouts/Auth';
-    import TextInput from '~/components/TextInput';
+    import Button from '~/Shared/Button';
+    import Auth from '~/Layouts/Auth';
+    import TextInput from '~/Shared/TextInput';
 
     function handleLogout() {
         Inertia.post(route('logout'));
