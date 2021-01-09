@@ -33,5 +33,5 @@
         </div>
     </div>
 
-    <h1 class="text-5xl text-center text-gray-700">Refresher.dev</h1>
+    <h1 class="text-5xl text-center text-gray-700">Refresher.dev!</h1>
 </Guest>
