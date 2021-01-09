@@ -8,5 +8,5 @@ jobs:
       - uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: jovertical
-          vercel-project-id: refresher
+          vercel-org-id: ampyiVVRoXCuOo5RJEwBY9Qc
+          vercel-project-id: prj_qK14DCbbkq5eQvnTCOCKXu49HsSn
