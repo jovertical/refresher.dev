@@ -30,6 +30,6 @@ class PasswordController extends Controller
      */
     public function update()
     {
-        // 
+        //
     }
 }

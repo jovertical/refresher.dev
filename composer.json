@@ -25,7 +25,7 @@
         "claudiodekker/inertia-laravel-testing": "^1.2",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.13.0",
-        "friendsofphp/php-cs-fixer": "^2.16",
+        "friendsofphp/php-cs-fixer": "^3.0",
         "laravel/breeze": "^1.0",
         "laravel/sail": "^1.0",
         "mockery/mockery": "^1.4.2",
@@ -62,10 +62,10 @@
     "prefer-stable": true,
     "scripts": {
         "lint": [
-            "php-cs-fixer fix -v"
+            "PHP_CS_FIXER_IGNORE_ENV=true php-cs-fixer fix -v"
         ],
         "test:lint": [
-            "vendor/bin/php-cs-fixer fix -v --dry-run"
+            "PHP_CS_FIXER_IGNORE_ENV=true php-cs-fixer fix -v --dry-run"
         ],
         "test:unit": [
             "vendor/bin/pest"
