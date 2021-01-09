@@ -13,6 +13,14 @@ use Inertia\Inertia;
 class NewPasswordController extends Controller
 {
     /**
+     * Create a new controller instance
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+    /**
      * Display the password reset view.
      *
      * @param  \Illuminate\Http\Request

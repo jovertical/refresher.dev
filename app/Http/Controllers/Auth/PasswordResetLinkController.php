@@ -10,6 +10,14 @@ use Inertia\Inertia;
 class PasswordResetLinkController extends Controller
 {
     /**
+     * Create a new controller instance
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+    /**
      * Display the password reset link request view.
      *
      * @return \Inertia\Response

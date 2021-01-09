@@ -10,6 +10,14 @@ use Inertia\Inertia;
 class EmailVerificationPromptController extends Controller
 {
     /**
+     * Create a new controller instance
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'throttle:6,1']);
+    }
+
+    /**
      * Display the email verification prompt.
      *
      * @param  \Illuminate\Http\Request  $request

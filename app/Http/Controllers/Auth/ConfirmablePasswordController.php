@@ -12,6 +12,14 @@ use Inertia\Inertia;
 class ConfirmablePasswordController extends Controller
 {
     /**
+     * Create a new controller instance
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Show the confirm password view.
      *
      * @return \Inertia\Response

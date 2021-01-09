@@ -14,6 +14,14 @@ use Inertia\Inertia;
 class RegisteredUserController extends Controller
 {
     /**
+     * Create a new controller instance
+     */
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+
+    /**
      * Display the registration view.
      *
      * @return \Inertia\Response
