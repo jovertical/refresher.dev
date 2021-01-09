@@ -1,6 +1,9 @@
-name: Deploy
+name: Deploy to production
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   Deploy:
@@ -31,3 +34,4 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
