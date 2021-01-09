@@ -8,7 +8,7 @@
 <Guest>
     <div class="fixed top-0 inset-x-0 w-full">
         <div class="flex items-center justify-end space-x-6 h-20 px-10">
-            {#if $page.props.auth.guest}
+            {#if !$page.props.auth.authenticated}
                 <InertiaLink
                     class="text-gray-800 underline hover:no-underline"
                     href="{route('login')}"

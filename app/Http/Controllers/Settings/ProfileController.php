@@ -52,10 +52,7 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->update($formData);
 
-        return back()->with('status', [
-            'status' => Status::Success,
-            'title'  => __('Successfully updated'),
-            'body'   => __('Your profile information has been updated')
-        ]);
+        return back()
+            ->with('message', 'Your profile information has been updated!');
     }
 }

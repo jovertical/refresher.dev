@@ -1,21 +1,34 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import { InertiaLink } from '@inertiajs/inertia-svelte';
     import clickOutside from '~/directives/clickOutside';
 
-    export let onLogout;
+    let dispatch = createEventDispatcher();
 
     let { route } = window;
 
-    let open = false;
+    let show = false;
+
+    function close() {
+        show = false;
+    }
+
+    function open() {
+        show = true;
+    }
+
+    function logout() {
+        dispatch('logout');
+    }
 </script>
 
-<div class="relative {$$props.class}" use:clickOutside on:click_outside="{() => (open = false)}">
+<div class="relative {$$props.class}" use:clickOutside on:click_outside="{close}">
     <div>
         <button
             class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
             id="user-menu"
             aria-haspopup="true"
-            on:click="{() => (open = true)}"
+            on:click="{open}"
         >
             <span class="sr-only">Open user menu</span>
             <span class="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">
@@ -28,7 +41,7 @@
         </button>
     </div>
 
-    {#if open}
+    {#if show}
         <!--
             Profile dropdown panel, show/hide based on dropdown state.
 
@@ -65,7 +78,7 @@
                 href="{'#'}"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
-                on:click="{onLogout}"
+                on:click="{logout}"
             >
                 Logout
             </a>

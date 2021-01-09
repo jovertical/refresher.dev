@@ -1,16 +1,16 @@
 <script>
     import { Inertia } from '@inertiajs/inertia';
     import { InertiaLink, page } from '@inertiajs/inertia-svelte';
+    import Flash from '~/Shared/Flash';
     import Icon from '~/Shared/Icon';
     import NavigationLink from '~/Shared/NavigationLink';
-    import StatusNotification from '~/Shared/StatusNotification';
     import UserMenu from '~/Shared/UserMenu';
 
     let { route } = window;
 
     let open = false;
 
-    function handleLogout() {
+    function logout() {
         Inertia.post(route('logout'));
     }
 </script>
@@ -40,7 +40,7 @@
 
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
-                        <UserMenu onLogout="{handleLogout}" />
+                        <UserMenu on:logout="{logout}" />
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@
                     <a
                         href="{'#'}"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                        on:click="{handleLogout}"
+                        on:click="{logout}"
                     >
                         Logout
                     </a>
@@ -125,8 +125,8 @@
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             <slot />
 
-            {#if $page.props.status}
-                <StatusNotification {...$page.props.status} />
+            {#if $page.props.flash.message}
+                <Flash message="{$page.props.flash.message}" />
             {/if}
         </div>
     </main>

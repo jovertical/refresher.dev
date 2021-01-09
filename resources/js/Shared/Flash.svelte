@@ -1,13 +1,24 @@
 <script>
-    import { onMount } from 'svelte';
+    import { afterUpdate } from 'svelte';
     import FilledIcon from '~/Shared/FilledIcon';
     import Icon from '~/Shared/Icon';
 
-    export let status = 'info';
-    export let title;
-    export let body;
+    export let status = 'success';
+    export let title = 'Success!';
+    export let message = null;
 
-    let show = true;
+    $: show = !!message;
+
+    function hide() {
+        show = false;
+        message = null;
+    }
+
+    afterUpdate(() => {
+        if (show) {
+            App.sleep(3000).then(hide);
+        }
+    });
 
     let icons = {
         info: 'information-circle',
@@ -50,13 +61,13 @@
 
                 <div class="ml-3 w-0 flex-1 pt-0.5">
                     <p class="text-sm font-medium text-gray-900">{title}</p>
-                    <p class="mt-1 text-sm text-gray-500">{body}</p>
+                    <p class="mt-1 text-sm text-gray-500">{message}</p>
                 </div>
 
                 <div class="ml-4 flex-shrink-0 flex">
                     <button
                         class="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        on:click="{() => (show = false)}"
+                        on:click="{hide}"
                     >
                         <span class="sr-only">Close</span>
                         <FilledIcon name="x" size="small" />

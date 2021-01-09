@@ -1,8 +1,6 @@
 <script>
     import App from '~/Shared/Layouts/App';
     import SettingsLink from '~/Shared/SettingsLink';
-
-    let route = window.route;
 </script>
 
 <App>
