@@ -59,19 +59,11 @@
             aria-labelledby="user-menu"
         >
             <InertiaLink
-                href="{route('settings.profile.edit')}"
+                href="{route('settings.account.edit')}"
                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
             >
-                Your Profile
-            </InertiaLink>
-
-            <InertiaLink
-                href="{route('settings.password.edit')}"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                role="menuitem"
-            >
-                Password
+                My Profile
             </InertiaLink>
 
             <a

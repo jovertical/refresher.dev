@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
-class ProfileController extends Controller
+class AccountController extends Controller
 {
     /**
      * Create a new controller instance
@@ -19,13 +19,13 @@ class ProfileController extends Controller
     }
 
     /**
-     * Display the profile settings view.
+     * Display the account settings view.
      *
      * @return \Inertia\Response
      */
     public function edit()
     {
-        return Inertia::render('Settings/Profile');
+        return Inertia::render('Settings/Account');
     }
 
     /**

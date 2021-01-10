@@ -15,7 +15,7 @@
     }
 </script>
 
-<div>
+<div class="min-h-screen bg-gray-100">
     <nav class="bg-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -96,17 +96,10 @@
 
                 <div class="mt-3 px-2 space-y-1">
                     <InertiaLink
-                        href="{route('settings.profile.edit')}"
+                        href="{route('settings.account.edit')}"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
                     >
-                        Your Profile
-                    </InertiaLink>
-
-                    <InertiaLink
-                        href="{route('settings.password.edit')}"
-                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                    >
-                        Password
+                        Account Settings
                     </InertiaLink>
 
                     <a

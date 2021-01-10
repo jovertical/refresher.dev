@@ -15,7 +15,7 @@
     });
 
     function handleSubmit() {
-        Inertia.patch(route('settings.profile.update'), $form);
+        Inertia.patch(route('settings.account.update'), $form);
     }
 </script>
 
@@ -73,8 +73,7 @@
                 </div>
 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <Button variant="secondary">Cancel</Button>
-                    <Button class="ml-3" type="submit">Submit</Button>
+                    <Button type="submit">Save</Button>
                 </div>
             </div>
         </form>

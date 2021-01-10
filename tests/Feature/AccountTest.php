@@ -5,22 +5,22 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(RefreshDatabase::class);
 
-test('profile settings screen can be rendered', function () {
+test('account settings screen can be rendered', function () {
     $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->get('/settings/profile');
+    $response = $this->actingAs($user)->get('/settings/account');
 
-    $response->assertInertia('Settings/Profile');
+    $response->assertInertia('Settings/Account');
 });
 
-test('profile information can be updated', function () {
+test('account information can be updated', function () {
     $user = User::factory()->create();
 
-    $this->get('/settings/profile');
+    $this->get('/settings/account');
 
     $this->actingAs($user);
 
-    $response = $this->patch('/settings/profile', [
+    $response = $this->patch('/settings/account', [
         'first_name' => $user->first_name,
         'last_name' => $user->last_name,
         'email' => 'test@example.com'
@@ -28,5 +28,5 @@ test('profile information can be updated', function () {
 
     $this->assertDatabaseHas('users', ['email' => 'test@example.com']);
 
-    $response->assertRedirect('/settings/profile');
+    $response->assertRedirect('/settings/account');
 });
