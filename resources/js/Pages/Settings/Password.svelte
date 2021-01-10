@@ -14,7 +14,9 @@
     });
 
     function handleSubmit() {
-        Inertia.patch(route('settings.password.update'), $form);
+        Inertia.patch(route('settings.password.update'), $form).then(() => {
+            form.reset();
+        });
     }
 </script>
 
