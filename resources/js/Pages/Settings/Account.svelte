@@ -1,12 +1,9 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
     import Settings from '~/Shared/Layouts/Settings';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
-
-    export let errors = {};
 
     let form = createForm({
         first_name: $page.props.auth.user.first_name,
@@ -15,7 +12,7 @@
     });
 
     function handleSubmit() {
-        Inertia.patch(route('settings.account.update'), $form);
+        form.patch(route('settings.account.update'));
     }
 </script>
 
@@ -27,14 +24,13 @@
                     <div>
                         <h2
                             id="profile_heading"
-                            class="text-lg leading-6 font-medium text-gray-900"
-                        >
+                            class="text-lg leading-6 font-medium text-gray-900">
                             Profile
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-500">
-                            This information will be displayed publicly so be careful what you
-                            share.
+                            This information will be displayed publicly so be
+                            careful what you share.
                         </p>
                     </div>
 
@@ -44,9 +40,8 @@
                                 label="First name"
                                 name="first_name"
                                 value="{$form.first_name}"
-                                error="{errors.first_name}"
-                                onChange="{form.handleChange}"
-                            />
+                                error="{$form.errors.first_name}"
+                                onChange="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-2">
@@ -54,9 +49,8 @@
                                 label="Last name"
                                 name="last_name"
                                 value="{$form.last_name}"
-                                error="{errors.last_name}"
-                                onChange="{form.handleChange}"
-                            />
+                                error="{$form.errors.last_name}"
+                                onChange="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-3">
@@ -65,15 +59,16 @@
                                 name="email"
                                 type="email"
                                 value="{$form.email}"
-                                error="{errors.email}"
-                                onChange="{form.handleChange}"
-                            />
+                                error="{$form.errors.email}"
+                                onChange="{form.handleChange}" />
                         </div>
                     </div>
                 </div>
 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <Button type="submit">Save</Button>
+                    <Button type="submit" loading="{$form.loading}">
+                        Save
+                    </Button>
                 </div>
             </div>
         </form>

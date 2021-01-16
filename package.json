@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "format": "prettier --write \"resources/**/*.(css|js|svelte)\"",
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
         "watch": "npm run development -- --watch",
@@ -14,24 +15,25 @@
         "@tailwindcss/aspect-ratio": "^0.2.0",
         "@tailwindcss/forms": "^0.2.1",
         "@tailwindcss/typography": "^0.3.1",
-        "autoprefixer": "^9.8.6",
-        "cross-env": "^7.0",
+        "autoprefixer": "^10.2.1",
+        "cross-env": "^7.0.3",
         "laravel-mix": "^5.0.9",
         "laravel-mix-svelte": "^0.1.6",
-        "postcss": "^8.1.8",
-        "postcss-import": "^12.0.1",
-        "prettier-plugin-svelte": "^1.4.2",
+        "postcss": "^8.2.4",
+        "prettier": "^2.2.1",
+        "prettier-plugin-svelte": "^2.1.0",
         "resolve-url-loader": "^3.1.0",
         "stylelint": "^13.8.0",
         "stylelint-config-standard": "^20.0.0",
-        "svelte": "^3.29.7",
+        "svelte": "^3.31.2",
         "svelte-loader": "^2.13.6",
-        "tailwindcss": "^2.0.1",
+        "tailwindcss": "^2.0.2",
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "@inertiajs/inertia": "^0.6.3",
-        "@inertiajs/inertia-svelte": "^0.5.1",
-        "@inertiajs/progress": "^0.2.2"
+        "@inertiajs/inertia": "^0.8.2",
+        "@inertiajs/inertia-svelte": "^0.5.2",
+        "@inertiajs/progress": "^0.2.4",
+        "svelte-class-transition": "^1.0.4"
     }
 }

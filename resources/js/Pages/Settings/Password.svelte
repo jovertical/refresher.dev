@@ -1,12 +1,9 @@
 <script>
-    import { Inertia } from '@inertiajs/inertia';
     import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
     import Settings from '~/Shared/Layouts/Settings';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
-
-    export let errors = {};
 
     let form = createForm({
         current_password: '',
@@ -14,9 +11,7 @@
     });
 
     function handleSubmit() {
-        Inertia.patch(route('settings.password.update'), $form).then(() => {
-            form.reset();
-        });
+        form.patch(route('settings.password.update'));
     }
 </script>
 
@@ -28,13 +23,13 @@
                     <div>
                         <h2
                             id="password_heading"
-                            class="text-lg leading-6 font-medium text-gray-900"
-                        >
+                            class="text-lg leading-6 font-medium text-gray-900">
                             Password
                         </h2>
 
                         <p class="mt-1 text-sm text-gray-500">
-                            Ensure your account is using a long, random password to stay secure
+                            Ensure your account is using a long, random password
+                            to stay secure
                         </p>
                     </div>
 
@@ -46,9 +41,8 @@
                                 type="password"
                                 autocomplete="current-password"
                                 value="{$form.current_password}"
-                                error="{errors.current_password}"
-                                onChange="{form.handleChange}"
-                            />
+                                error="{$form.errors.current_password}"
+                                onChange="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-2">
@@ -57,15 +51,16 @@
                                 name="password"
                                 type="password"
                                 value="{$form.password}"
-                                error="{errors.password}"
-                                onChange="{form.handleChange}"
-                            />
+                                error="{$form.errors.password}"
+                                onChange="{form.handleChange}" />
                         </div>
                     </div>
                 </div>
 
                 <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <Button type="submit">Save</Button>
+                    <Button type="submit" loading="{$form.loading}">
+                        Save
+                    </Button>
                 </div>
             </div>
         </form>

@@ -7,11 +7,15 @@
     export let name;
     export let error;
 
-    $: props = (({ onChange, label, type, name, errors, ...other }) => other)($$props);
+    $: props = (({ onChange, label, type, name, errors, ...other }) => other)(
+        $$props,
+    );
 </script>
 
 <div>
-    {#if label}<label for="{name}" class="form-label">{label}</label>{/if}
+    {#if label}
+        <label for="{name}" class="form-label">{label}</label>
+    {/if}
 
     <div class="mt-1 relative rounded-md shadow-sm">
         <input
@@ -23,12 +27,15 @@
             {...props}
             on:change="{onChange}"
             class="form-input"
-            class:error
-        />
+            class:error />
 
         {#if error}
-            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                <FilledIcon class="text-red-500" name="exclamation-circle" size="small" />
+            <div
+                class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                <FilledIcon
+                    class="text-red-500"
+                    name="exclamation-circle"
+                    size="small" />
             </div>
         {/if}
     </div>

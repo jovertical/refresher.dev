@@ -11,10 +11,11 @@
         <img
             class="mx-auto h-12 w-auto"
             src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-            alt="Workflow"
-        />
+            alt="Workflow" />
 
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">{title}</h2>
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+            {title}
+        </h2>
 
         <p class="mt-2 text-center text-sm text-gray-600">
             <slot name="helper" />
@@ -27,8 +28,10 @@
                 <!-- prettier-ignore -->
                 <Alert class="mb-6" status="success">
                     {#if $page.props.status === 'verification-link-sent'}
-                        A new verification link has been sent to the email address you provided
-                        during registration.
+                        <span>
+                            A new verification link has been sent to the email address you provided
+                            during registration.
+                        </span>
                     {:else}
                         <span>{$page.props.status}</span>
                     {/if}
