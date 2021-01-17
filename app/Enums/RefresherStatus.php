@@ -10,8 +10,8 @@ use BenSampo\Enum\Enum;
  */
 final class RefresherStatus extends Enum
 {
-    const Draft = 1;
-    const Completed = 2;
+    public const Draft = 1;
+    public const Completed = 2;
 
     public function toArray()
     {

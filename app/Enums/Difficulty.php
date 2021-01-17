@@ -11,9 +11,9 @@ use BenSampo\Enum\Enum;
  */
 final class Difficulty extends Enum
 {
-    const Beginner = 1;
-    const Intermediate = 2;
-    const Advanced = 3;
+    public const Beginner = 1;
+    public const Intermediate = 2;
+    public const Advanced = 3;
 
     public function toArray()
     {

@@ -29,7 +29,7 @@ class Refresher extends Model
 
     /**
      * The accessors to append to the model's array form.
-     * 
+     *
      * @var array<string>
      */
     protected $appends = [
