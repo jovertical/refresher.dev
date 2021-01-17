@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\RefresherStatus;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,12 +17,14 @@ class CreateRefreshersTable extends Migration
     {
         Schema::create('refreshers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignIdFor(User::class);
+            $table->string('slug');
             $table->string('title');
             $table->text('body');
             $table->tinyInteger('difficulty');
-            $table->tinyInteger('status')->default(1);
-            $table->tinyInteger('public')->default(false);
+            $table->tinyInteger('private')->default(false);
+            $table->tinyInteger('status')->default(RefresherStatus::Draft);
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

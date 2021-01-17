@@ -7,6 +7,7 @@ use App\Enums\RefresherStatus;
 use App\Models\Refresher;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class RefresherFactory extends Factory
 {
@@ -26,7 +27,7 @@ class RefresherFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'title' => $this->faker->sentence,
+            'title' => Str::title($this->faker->sentence(rand(3, 5))),
             'body' => $this->faker->paragraph,
             'difficulty' => $this->faker->randomElement(Difficulty::getValues()),
             'status' => RefresherStatus::Draft,

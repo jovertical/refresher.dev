@@ -19,7 +19,7 @@ class RefresherController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
@@ -34,7 +34,7 @@ class RefresherController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function create()
     {
@@ -56,18 +56,18 @@ class RefresherController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Refresher  $refresher
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function show(Refresher $refresher)
     {
-        //
+        return Inertia::render('Refreshers/Show', compact('refresher'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Refresher  $refresher
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function edit(Refresher $refresher)
     {
