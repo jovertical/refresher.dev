@@ -43,11 +43,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * @return string
-     */
     public function getNameAttribute()
     {
         return implode(' ', [$this->first_name, $this->last_name]);
+    }
+
+    public function refreshers()
+    {
+        return $this->hasMany(Refresher::class);
     }
 }

@@ -32,6 +32,12 @@
                             <NavigationLink class="text-sm" route="home">
                                 Dashboard
                             </NavigationLink>
+
+                            <NavigationLink
+                                class="text-sm"
+                                route="refreshers.index">
+                                Refreshers
+                            </NavigationLink>
                         </div>
                     </div>
                 </div>
@@ -59,6 +65,9 @@
         <div class="md:hidden" class:hidden="{!open}" class:block="{open}">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <NavigationLink route="home">Dashboard</NavigationLink>
+                <NavigationLink route="refreshers.index">
+                    Refreshers
+                </NavigationLink>
             </div>
 
             <div class="pt-4 pb-3 border-t border-gray-700">
@@ -100,7 +109,7 @@
                     <a
                         href="{'#'}"
                         class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
-                        on:click="{logout}"> Logout </a>
+                        on:click="{logout}">Logout</a>
                 </div>
             </div>
         </div>
