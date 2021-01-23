@@ -2,7 +2,7 @@
     import Button from '~/Shared/Button';
     import FilledIcon from '~/Shared/FilledIcon';
     import App from '~/Shared/Layouts/App';
-    import Refresher from './Refresher';
+    import Refresher from '~/Shared/Refreshers/Refresher';
 
     export let refreshers = {};
 </script>
@@ -59,7 +59,7 @@
             <div class="mt-4 sm:ml-4 sm:mt-0 w-full sm:w-auto">
                 <Button
                     type="link"
-                    path="{window.route('refreshers.create', { current: 1 })}"
+                    path="{window.route('refreshers.create')}"
                     class="w-full sm:w-auto">Add new</Button>
             </div>
         </div>

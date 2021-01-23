@@ -28,7 +28,7 @@ class RefresherFactory extends Factory
         return [
             'user_id' => User::factory(),
             'title' => Str::title($this->faker->sentence(rand(3, 5))),
-            'body' => $this->faker->paragraph,
+            'description' => $this->faker->paragraph,
             'difficulty' => $this->faker->randomElement(Difficulty::getValues()),
             'status' => RefresherStatus::Draft,
         ];

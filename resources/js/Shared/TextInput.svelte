@@ -1,5 +1,7 @@
 <script>
     import FilledIcon from '~/Shared/FilledIcon';
+    import FormError from '~/Shared/FormError';
+    import FormLabel from '~/Shared/FormLabel';
 
     export let onChange;
     export let label;
@@ -14,7 +16,7 @@
 
 <div>
     {#if label}
-        <label for="{name}" class="form-label">{label}</label>
+        <FormLabel for="{name}" value="{label}" />
     {/if}
 
     <div class="mt-1 relative rounded-md shadow-sm">
@@ -26,8 +28,15 @@
             aria-describedby="{name + '-error'}"
             {...props}
             on:change="{onChange}"
-            class="form-input"
-            class:error />
+            class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
+            class:focus:ring-indigo-500="{!error}"
+            class:focus:border-indigo-500="{!error}"
+            class:pr-10="{error}"
+            class:border-red-300="{error}"
+            class:text-red-900="{error}"
+            class:placeholder-red-300="{error}"
+            class:focus:ring-red-500="{error}"
+            class:focus:border-red-500="{error}" />
 
         {#if error}
             <div
@@ -41,6 +50,6 @@
     </div>
 
     {#if error}
-        <p id="{name + '-error'}" class="form-error">{error}</p>
+        <FormError name="{name}" value="{error}" />
     {/if}
 </div>

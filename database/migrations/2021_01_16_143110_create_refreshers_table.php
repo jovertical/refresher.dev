@@ -20,7 +20,7 @@ class CreateRefreshersTable extends Migration
             $table->foreignIdFor(User::class);
             $table->string('slug');
             $table->string('title');
-            $table->text('body');
+            $table->text('description');
             $table->tinyInteger('difficulty');
             $table->tinyInteger('private')->default(false);
             $table->tinyInteger('status')->default(RefresherStatus::Draft);

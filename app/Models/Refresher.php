@@ -18,6 +18,20 @@ class Refresher extends Model
     use Sluggable;
 
     /**
+     * The attributes that are mass assignable.
+     * 
+     * @var array<string>
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'difficulty',
+        'private',
+        'status',
+        'published_at'
+    ];
+
+    /**
      * The attributes that should be cast to native types.
      *
      * @var array<string, string>
@@ -51,11 +65,6 @@ class Refresher extends Model
     public function creator()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    public function getProgressAttribute()
-    {
-        return 1;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RefresherRequest;
 use App\Models\Refresher;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -44,12 +45,16 @@ class RefresherController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\RefresherRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RefresherRequest $request)
     {
-        //
+        $request->user()
+            ->refreshers()
+            ->create($request->validated());
+
+        return back()->with('message', 'Refresher created');
     }
 
     /**
