@@ -5,6 +5,6 @@
 
 <p
     id="{name + '-error'}"
-    class="mt-2 text-sm text-red-600 {$$props.class || ''}">
+    class="mt-1 text-sm text-red-600 {$$props.class || ''}">
     {value}
 </p>
