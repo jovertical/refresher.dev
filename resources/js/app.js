@@ -2,7 +2,11 @@ import { App } from '@inertiajs/inertia-svelte';
 import { InertiaProgress } from '@inertiajs/progress';
 import * as helpers from '~/helpers';
 
-window.App = helpers;
+if (typeof window === 'undefined') {
+    global.Refresher = helpers;
+} else {
+    window.Refresher = helpers;
+}
 
 let el = document.getElementById('app');
 

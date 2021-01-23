@@ -6,7 +6,7 @@ export function sleep(milliseconds = 1000) {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
 }
 
-export function pull(key, object) {
+export function pull(key, object, defaultValue = null) {
     if (typeof key === 'number') {
         key = key.toString();
     }
@@ -15,5 +15,5 @@ export function pull(key, object) {
         throw new TypeError('Key must be a string');
     }
 
-    return object.hasOwnProperty(key) ? object[key] : null;
+    return object.hasOwnProperty(key) ? object[key] : defaultValue;
 }

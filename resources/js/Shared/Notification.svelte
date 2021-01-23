@@ -16,11 +16,11 @@
 
     afterUpdate(async () => {
         if (show) {
-            await App.sleep(3000);
+            await Refresher.sleep(3000);
 
             hide();
 
-            await App.sleep(500);
+            await Refresher.sleep(500);
 
             message = '';
         }

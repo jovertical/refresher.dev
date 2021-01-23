@@ -7,7 +7,7 @@
 
     let { route } = window;
 
-    $: status = App.pull(attributes.status.value, {
+    $: status = Refresher.pull(attributes.status.value, {
         '1': 'warning',
         '2': 'success',
     });

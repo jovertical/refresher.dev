@@ -57,7 +57,10 @@
             </div>
 
             <div class="mt-4 sm:ml-4 sm:mt-0 w-full sm:w-auto">
-                <Button class="w-full sm:w-auto">Add new</Button>
+                <Button
+                    type="link"
+                    path="{window.route('refreshers.create', { current: 1 })}"
+                    class="w-full sm:w-auto">Add new</Button>
             </div>
         </div>
     </div>

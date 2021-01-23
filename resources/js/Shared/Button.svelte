@@ -1,10 +1,27 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+    import { Inertia } from '@inertiajs/inertia';
+
+    let dispatch = createEventDispatcher();
+
     export let type = 'button';
     export let variant = 'primary';
     export let loading = false;
+    export let path = '/';
+
+    function handleClick() {
+        if (type === 'link') {
+            return Inertia.get(path);
+        }
+
+        dispatch('click');
+    }
 </script>
 
-<button type="{type}" class="button {variant} {$$props.class || ''}">
+<button
+    type="{type}"
+    on:click="{handleClick}"
+    class="button {variant} {$$props.class || ''}">
     {#if loading}
         <svg
             class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"

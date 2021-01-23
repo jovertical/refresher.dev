@@ -53,6 +53,11 @@ class Refresher extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function getProgressAttribute()
+    {
+        return 1;
+    }
+
     /**
      * Return the sluggable configuration array for this model.
      *
