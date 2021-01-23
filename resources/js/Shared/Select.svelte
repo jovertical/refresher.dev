@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import cx from 'classnames';
 
     let dispatch = createEventDispatcher();
 
@@ -12,6 +13,16 @@
             value: event.target.value,
         });
     }
+
+    let classes = {
+        root: cx(
+            'block max-w-lg w-full shadow-sm sm:max-w-xs sm:text-sm rounded-md',
+            {
+                'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500': !hasError,
+                'border-red-300 focus:border-red-500 focus:ring-red-500': hasError,
+            },
+        ),
+    };
 </script>
 
 <select
@@ -19,12 +30,6 @@
     name="{name}"
     autocomplete="{name}"
     on:blur="{handleChange}"
-    class="block max-w-lg w-full shadow-sm sm:max-w-xs sm:text-sm rounded-md"
-    class:border-gray-300="{!hasError}"
-    class:focus:border-indigo-500="{!hasError}"
-    class:focus:ring-indigo-500="{!hasError}"
-    class:border-red-300="{hasError}"
-    class:focus:border-red-500="{hasError}"
-    class:focus:ring-red-500="{hasError}">
+    class="{classes.root}">
     <slot />
 </select>

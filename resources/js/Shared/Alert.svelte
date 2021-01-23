@@ -1,4 +1,5 @@
 <script>
+    import cx from 'classnames';
     import FilledIcon from '~/Shared/FilledIcon';
 
     export let status;
@@ -7,8 +8,14 @@
         success: 'check-circle',
     };
 
-    let iconClasses = {
-        success: 'text-green-400',
+    let classes = {
+        icon: cx({
+            'text-green-400': status === 'success',
+        }),
+
+        message: cx('text-sm font-medium ', {
+            'text-green-800': status === 'success',
+        }),
     };
 </script>
 
@@ -16,15 +23,13 @@
     <div class="flex">
         <div class="flex-shrink-0">
             <FilledIcon
-                class="{iconClasses[status]}"
+                class="{classes.icon}"
                 name="{icons[status]}"
                 size="small" />
         </div>
 
         <div class="ml-3">
-            <p
-                class="text-sm font-medium {status}"
-                class:text-green-800="{status === 'success'}">
+            <p class="{classes.message}">
                 <slot />
             </p>
         </div>

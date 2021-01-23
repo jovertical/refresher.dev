@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import cx from 'classnames';
 
     let dispatch = createEventDispatcher();
 
@@ -7,6 +8,13 @@
     export let value;
     export let rows = 3;
     export let hasError;
+
+    let classes = {
+        root: cx('max-w-lg shadow-sm block w-full sm:text-sm rounded-md', {
+            'focus:ring-indigo-500 focus:border-indigo-500 border-gray-300': !hasError,
+            'border-red-300 text-red-900 focus:ring-red-500 focus:border-red-500': hasError,
+        }),
+    };
 
     function handleChange(event) {
         dispatch('change', {
@@ -23,11 +31,4 @@
     aria-invalid="{hasError}"
     aria-describedby="{name + '-error'}"
     on:change="{handleChange}"
-    class="max-w-lg shadow-sm block w-full sm:text-sm rounded-md"
-    class:focus:ring-indigo-500="{!hasError}"
-    class:focus:border-indigo-500="{!hasError}"
-    class:border-gray-300="{!hasError}"
-    class:border-red-300="{hasError}"
-    class:text-red-900="{hasError}"
-    class:focus:ring-red-500="{hasError}"
-    class:focus:border-red-500="{hasError}">{value}</textarea>
+    class="{classes.root}">{value}</textarea>

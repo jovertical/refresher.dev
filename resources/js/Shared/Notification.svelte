@@ -1,6 +1,7 @@
 <script>
     import { afterUpdate } from 'svelte';
     import Transition from 'svelte-class-transition';
+    import cx from 'classnames';
     import FilledIcon from '~/Shared/FilledIcon';
     import Icon from '~/Shared/Icon';
 
@@ -33,11 +34,13 @@
         error: 'x-circle',
     };
 
-    let iconColors = {
-        info: 'text-blue-400',
-        success: 'text-green-400',
-        warning: 'text-yellow-400',
-        error: 'text-red-400',
+    let classes = {
+        icon: cx({
+            'text-blue-400': status === 'info',
+            'text-green-400': status === 'success',
+            'text-yellow-400': status === 'warning',
+            'text-red-400': status === 'error',
+        }),
     };
 </script>
 
@@ -55,9 +58,7 @@
             <div class="p-4">
                 <div class="flex items-start">
                     <div class="flex-shrink-0">
-                        <Icon
-                            class="{iconColors[status]}"
-                            name="{icons[status]}" />
+                        <Icon class="{classes.icon}" name="{icons[status]}" />
                     </div>
 
                     <div class="ml-3 w-0 flex-1 pt-0.5">

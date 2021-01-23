@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import cx from 'classnames';
     import FilledIcon from '~/Shared/FilledIcon';
 
     let dispatch = createEventDispatcher();
@@ -8,6 +9,16 @@
     export let name;
     export let value;
     export let hasError;
+
+    let classes = {
+        input: cx(
+            'appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm',
+            {
+                'focus:ring-indigo-500 focus:border-indigo-500': !hasError,
+                'pr-10 border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500': hasError,
+            },
+        ),
+    };
 
     function handleChange(event) {
         dispatch('change', {
@@ -26,15 +37,7 @@
         aria-describedby="{name + '-error'}"
         value="{value}"
         on:change="{handleChange}"
-        class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none sm:text-sm"
-        class:focus:ring-indigo-500="{!hasError}"
-        class:focus:border-indigo-500="{!hasError}"
-        class:pr-10="{hasError}"
-        class:border-red-300="{hasError}"
-        class:text-red-900="{hasError}"
-        class:placeholder-red-300="{hasError}"
-        class:focus:ring-red-500="{hasError}"
-        class:focus:border-red-500="{hasError}" />
+        class="{classes.input}" />
 
     {#if hasError}
         <div
