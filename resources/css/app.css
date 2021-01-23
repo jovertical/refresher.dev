@@ -1,9 +1,5 @@
 @import url('https://rsms.me/inter/inter.css');
 
-/* Components */
-@import './badge.css';
-@import './button.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

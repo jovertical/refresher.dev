@@ -9,6 +9,9 @@
     export let loading = false;
     export let path = '/';
 
+    $: primary = variant === 'primary';
+    $: secondary = variant === 'secondary';
+
     function handleClick() {
         if (type === 'link') {
             return Inertia.get(path);
@@ -21,7 +24,15 @@
 <button
     type="{type}"
     on:click="{handleClick}"
-    class="button {variant} {$$props.class || ''}">
+    class="inline-flex justify-center py-2 px-4 border rounded-md shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 {$$props.class}"
+    class:bg-indigo-600="{primary}"
+    class:hover:bg-indigo-700="{primary}"
+    class:border-transparent="{primary}"
+    class:text-white="{primary}"
+    class:bg-white="{secondary}"
+    class:border-gray-300="{secondary}"
+    class:text-gray-700="{secondary}"
+    class:hover:bg-gray-50="{secondary}">
     {#if loading}
         <svg
             class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
