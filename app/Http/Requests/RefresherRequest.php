@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Enums\Level;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class RefresherRequest extends FormRequest
 {
@@ -24,8 +26,12 @@ class RefresherRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'max:255'],
+            'title' => [Rule::requiredIf($this->step === 1), 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:510'],
+            'difficulty' => [
+                Rule::requiredIf($this->step === 1),
+                Rule::in(Level::getValues())
+            ],
         ];
     }
 }

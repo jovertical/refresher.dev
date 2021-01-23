@@ -26,7 +26,7 @@
             type="password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <Button class="w-full" type="submit" loading="{$form.loading}">
             Confirm

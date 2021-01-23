@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\Level;
 use App\Http\Requests\RefresherRequest;
 use App\Models\Refresher;
 use Illuminate\Http\Request;
@@ -39,7 +40,9 @@ class RefresherController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Refreshers/Create');
+        return Inertia::render('Refreshers/Create', [
+            'levels' => array_values(Level::getInstances())
+        ]);
     }
 
     /**
@@ -50,11 +53,7 @@ class RefresherController extends Controller
      */
     public function store(RefresherRequest $request)
     {
-        $request->user()
-            ->refreshers()
-            ->create($request->validated());
-
-        return back()->with('message', 'Refresher created');
+        return back();
     }
 
     /**

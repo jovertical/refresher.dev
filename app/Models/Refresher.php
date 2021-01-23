@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Enums\Difficulty;
+use App\Enums\Level;
 use App\Enums\RefresherStatus;
 use App\Support\DisplaysDates;
 use BenSampo\Enum\Traits\CastsEnums;
@@ -19,7 +19,7 @@ class Refresher extends Model
 
     /**
      * The attributes that are mass assignable.
-     * 
+     *
      * @var array<string>
      */
     protected $fillable = [
@@ -38,7 +38,7 @@ class Refresher extends Model
      */
     protected $casts = [
         'public' => 'boolean',
-        'difficulty' => Difficulty::class,
+        'difficulty' => Level::class,
         'status' => RefresherStatus::class,
     ];
 

@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Enums\Difficulty;
+use App\Enums\Level;
 use App\Enums\RefresherStatus;
 use App\Models\Refresher;
 use App\Models\User;
@@ -29,7 +29,7 @@ class RefresherFactory extends Factory
             'user_id' => User::factory(),
             'title' => Str::title($this->faker->sentence(rand(3, 5))),
             'description' => $this->faker->paragraph,
-            'difficulty' => $this->faker->randomElement(Difficulty::getValues()),
+            'difficulty' => $this->faker->randomElement(Level::getValues()),
             'status' => RefresherStatus::Draft,
         ];
     }

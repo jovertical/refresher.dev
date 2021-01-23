@@ -29,7 +29,7 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <div class="flex items-center justify-center">
             <InertiaLink

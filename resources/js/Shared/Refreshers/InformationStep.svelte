@@ -1,11 +1,17 @@
 <script>
+    import { page } from '@inertiajs/inertia-svelte';
     import Button from '~/Shared/Button';
+    import FormGroup from '~/Shared/FormGroup';
+    import Select from '~/Shared/Select';
+    import Textarea from '~/Shared/Textarea';
     import TextInput from '~/Shared/TextInput';
     import { createForm } from '~/stores/form';
 
     let form = createForm({
+        step: 1,
         title: '',
         description: '',
+        difficulty: 1,
     });
 
     function save() {
@@ -31,36 +37,51 @@
                 </div>
 
                 <div class="mt-6 grid grid-cols-4 gap-6">
-                    <div class="col-span-4 sm:col-span-2">
+                    <FormGroup
+                        class="col-span-4 sm:col-span-2"
+                        label="Title"
+                        error="{$form.errors.title}">
                         <TextInput
-                            label="Title"
                             name="title"
                             value="{$form.title}"
-                            error="{$form.errors.title}"
-                            onChange="{form.handleChange}" />
-                    </div>
+                            on:change="{form.handleChange}"
+                            hasError="{!!$form.errors.title}" />
+                    </FormGroup>
 
-                    <div class="col-span-4">
-                        <TextInput
-                            label="Description"
+                    <FormGroup
+                        class="col-span-4"
+                        label="Description"
+                        error="{$form.errors.description}">
+                        <Textarea
                             name="description"
                             value="{$form.description}"
-                            error="{$form.errors.description}"
-                            onChange="{form.handleChange}" />
-                    </div>
+                            on:change="{form.handleChange}"
+                            hasError="{!!$form.errors.description}" />
+                    </FormGroup>
 
-                    <div class="col-span-4">
-                        <!-- Difficulty -->
-                    </div>
+                    <FormGroup
+                        class="col-span-4 lg:col-span-2"
+                        label="Difficulty"
+                        error="{$form.errors.difficulty}">
+                        <Select
+                            name="difficulty"
+                            value="{$form.difficulty}"
+                            on:change="{form.handleChange}"
+                            hasError="{!!$form.errors.difficulty}">
+                            {#each $page.props.levels as level}
+                                <option value="{level.value}">
+                                    {level.description}
+                                </option>
+                            {/each}
+                        </Select>
+                    </FormGroup>
                 </div>
             </div>
         </div>
 
-        <div class="pt-5">
+        <div class="pt-5 px-5 sm:px-0">
             <div class="flex justify-end">
-                <Button type="submit" loading="{$form.loading}">
-                    Save & Next
-                </Button>
+                <Button type="submit" loading="{$form.loading}">Next</Button>
             </div>
         </div>
     </form>

@@ -42,7 +42,7 @@
                                 autocomplete="current-password"
                                 value="{$form.current_password}"
                                 error="{$form.errors.current_password}"
-                                onChange="{form.handleChange}" />
+                                on:change="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-2">
@@ -52,7 +52,7 @@
                                 type="password"
                                 value="{$form.password}"
                                 error="{$form.errors.password}"
-                                onChange="{form.handleChange}" />
+                                on:change="{form.handleChange}" />
                         </div>
                     </div>
                 </div>

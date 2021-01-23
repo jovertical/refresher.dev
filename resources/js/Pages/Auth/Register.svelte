@@ -33,14 +33,14 @@
             name="first_name"
             value="{$form.first_name}"
             error="{$form.errors.first_name}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <TextInput
             label="Last name"
             name="last_name"
             value="{$form.last_name}"
             error="{$form.errors.last_name}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <TextInput
             label="Email address"
@@ -48,7 +48,7 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <TextInput
             label="Password"
@@ -56,7 +56,7 @@
             type="password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <Button class="w-full" type="submit" loading="{$form.loading}">
             Register

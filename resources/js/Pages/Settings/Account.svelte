@@ -41,7 +41,7 @@
                                 name="first_name"
                                 value="{$form.first_name}"
                                 error="{$form.errors.first_name}"
-                                onChange="{form.handleChange}" />
+                                on:change="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-2">
@@ -50,7 +50,7 @@
                                 name="last_name"
                                 value="{$form.last_name}"
                                 error="{$form.errors.last_name}"
-                                onChange="{form.handleChange}" />
+                                on:change="{form.handleChange}" />
                         </div>
 
                         <div class="col-span-4 sm:col-span-3">
@@ -60,7 +60,7 @@
                                 type="email"
                                 value="{$form.email}"
                                 error="{$form.errors.email}"
-                                onChange="{form.handleChange}" />
+                                on:change="{form.handleChange}" />
                         </div>
                     </div>
                 </div>

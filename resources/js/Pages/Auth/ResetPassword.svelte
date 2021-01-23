@@ -28,7 +28,7 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <TextInput
             label="Password"
@@ -36,7 +36,7 @@
             type="password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <TextInput
             label="Confirm Password"
@@ -44,7 +44,7 @@
             type="password"
             value="{$form.password_confirmation}"
             error="{$form.errors.password_confirmation}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <div class="flex items-center justify-end">
             <InertiaLink

@@ -32,7 +32,7 @@
             type="email"
             value="{$form.email}"
             error="{$form.errors.email}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <TextInput
             label="Password"
@@ -41,7 +41,7 @@
             autocomplete="current-password"
             value="{$form.password}"
             error="{$form.errors.password}"
-            onChange="{form.handleChange}" />
+            on:change="{form.handleChange}" />
 
         <div class="flex items-center justify-between">
             <div class="flex items-center">

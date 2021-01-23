@@ -9,7 +9,7 @@ use BenSampo\Enum\Enum;
  * @method static static Intermediate()
  * @method static static Advanced()
  */
-final class Difficulty extends Enum
+final class Level extends Enum
 {
     public const Beginner = 1;
     public const Intermediate = 2;
