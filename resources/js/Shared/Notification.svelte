@@ -1,7 +1,7 @@
 <script>
     import { afterUpdate } from 'svelte';
     import Transition from 'svelte-class-transition';
-    import cx from 'classnames';
+    import cx from '~/directives/cx';
     import FilledIcon from '~/Shared/FilledIcon';
     import Icon from '~/Shared/Icon';
 
@@ -33,15 +33,6 @@
         warning: 'exclamation',
         error: 'x-circle',
     };
-
-    let classes = {
-        icon: cx({
-            'text-blue-400': status === 'info',
-            'text-green-400': status === 'success',
-            'text-yellow-400': status === 'warning',
-            'text-red-400': status === 'error',
-        }),
-    };
 </script>
 
 <div
@@ -57,8 +48,15 @@
             class="max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="p-4">
                 <div class="flex items-start">
-                    <div class="flex-shrink-0">
-                        <Icon class="{classes.icon}" name="{icons[status]}" />
+                    <div
+                        class="flex-shrink-0"
+                        use:cx="{{
+                            'text-blue-400': status === 'info',
+                            'text-green-400': status === 'success',
+                            'text-yellow-400': status === 'warning',
+                            'text-red-400': status === 'error',
+                        }}">
+                        <Icon name="{icons[status]}" />
                     </div>
 
                     <div class="ml-3 w-0 flex-1 pt-0.5">

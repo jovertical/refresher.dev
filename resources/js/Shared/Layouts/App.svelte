@@ -65,7 +65,7 @@
         <div class="md:hidden" class:hidden="{!open}" class:block="{open}">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <NavigationLink route="home">Dashboard</NavigationLink>
-                <NavigationLink route="refreshers.index">
+                <NavigationLink class="mt-1" route="refreshers.index">
                     Refreshers
                 </NavigationLink>
             </div>
