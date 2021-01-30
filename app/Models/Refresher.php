@@ -6,16 +6,17 @@ use App\Enums\Level;
 use App\Enums\RefresherStatus;
 use App\Support\DisplaysDates;
 use BenSampo\Enum\Traits\CastsEnums;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Refresher extends Model
 {
     use CastsEnums;
     use DisplaysDates;
     use HasFactory;
-    use Sluggable;
+    use HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -67,17 +68,20 @@ class Refresher extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable(): array
+    public function skills()
     {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
+        return $this->belongsToMany(Skill::class);
+    }
+
+    /**
+     * Get the options for generating the slug.
+     *
+     * @return \Spatie\Sluggable\SlugOptions
+     */
+    public function getSlugOptions(): SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 }
