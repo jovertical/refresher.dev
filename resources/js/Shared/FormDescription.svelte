@@ -3,6 +3,6 @@
     export let value = '';
 </script>
 
-<p id="{name}-error" class="text-sm text-red-600 {$$props.class || ''}">
+<p class="text-sm text-gray-500 {$$props.class || ''}" id="{name}-description">
     {value}
 </p>

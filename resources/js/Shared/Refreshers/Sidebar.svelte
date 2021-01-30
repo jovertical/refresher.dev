@@ -4,22 +4,17 @@
     let steps = [
         {
             title: 'Refresher Information',
-            description: 'Basic refresher details',
-        },
-
-        {
-            title: 'Skills',
-            description: 'You can select up to 5 skills',
+            description: 'Describe the refresher & select the skills',
         },
 
         {
             title: 'Items',
-            description: 'You can select up to 20 items',
+            description: 'Set up to 20 items',
         },
 
         {
-            title: 'Access & Sharing',
-            description: 'Set who can take the refresher',
+            title: 'Preview',
+            description: 'You can experience how others take this refresher',
         },
     ];
 </script>

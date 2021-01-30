@@ -12,6 +12,7 @@
         title: '',
         description: '',
         difficulty: 1,
+        skills: [],
     });
 
     function save() {
@@ -31,26 +32,29 @@
                     </h2>
 
                     <p class="mt-1 text-sm text-gray-500">
-                        Ex recusandae quia in dolorem ipsum minima harum.
-                        Dolorum voluptatibus autem autem fugit est.
+                        Describe the refresher and select the skills
                     </p>
                 </div>
 
                 <div class="mt-6 grid grid-cols-4 gap-6">
                     <FormGroup
-                        class="col-span-4 sm:col-span-2"
+                        name="title"
+                        class="col-span-4 sm:col-span-3 md:col-span-2"
                         label="Title"
                         error="{$form.errors.title}">
                         <TextInput
                             name="title"
                             value="{$form.title}"
                             on:change="{form.handleChange}"
-                            hasError="{!!$form.errors.title}" />
+                            hasError="{!!$form.errors.title}"
+                            placeholder="e.g. JavaScript - The hard parts" />
                     </FormGroup>
 
                     <FormGroup
+                        name="description"
                         class="col-span-4"
                         label="Description"
+                        description="Brief description of the refresher. URLs are hyperlinked."
                         error="{$form.errors.description}">
                         <Textarea
                             name="description"
@@ -60,7 +64,8 @@
                     </FormGroup>
 
                     <FormGroup
-                        class="col-span-4 lg:col-span-2"
+                        id="difficulty"
+                        class="col-span-4"
                         label="Difficulty"
                         error="{$form.errors.difficulty}">
                         <Select
@@ -74,6 +79,20 @@
                                 </option>
                             {/each}
                         </Select>
+                    </FormGroup>
+
+                    <FormGroup
+                        id="skills"
+                        class="col-span-4 sm:col-span-3 md:col-span-2"
+                        label="Skills"
+                        description="You can select up to 5."
+                        error="{$form.errors.skills}">
+                        <TextInput
+                            name="skills"
+                            value=""
+                            on:change="{form.handleChange}"
+                            hasError="{!!$form.errors.skills}"
+                            icon="tag" />
                     </FormGroup>
                 </div>
             </div>

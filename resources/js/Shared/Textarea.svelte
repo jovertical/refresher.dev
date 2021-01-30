@@ -5,9 +5,10 @@
     let dispatch = createEventDispatcher();
 
     export let name;
-    export let value;
     export let rows = 3;
-    export let hasError;
+    export let hasError = false;
+
+    $: props = (({ name, rows, hasError, ...other }) => other)($$props);
 
     function handleChange(event) {
         dispatch('change', {
@@ -18,14 +19,15 @@
 </script>
 
 <textarea
-    class="max-w-lg shadow-sm block w-full sm:text-sm rounded-md"
+    id="{name}"
+    class="max-w-none sm:max-w-lg shadow-sm block w-full sm:text-sm rounded-md {$$props.class}"
     use:cx="{{
         'focus:ring-indigo-500 focus:border-indigo-500 border-gray-300': !hasError,
         'border-red-300 text-red-900 focus:ring-red-500 focus:border-red-500': hasError,
     }}"
-    id="{name}"
     name="{name}"
     rows="{rows}"
+    {...props}
     aria-invalid="{hasError}"
     aria-describedby="{name + '-error'}"
-    on:change="{handleChange}">{value}</textarea>
+    on:change="{handleChange}">{$$props.value}</textarea>
