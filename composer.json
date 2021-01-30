@@ -30,8 +30,9 @@
         "laravel/sail": "^1.0",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.1",
-        "pestphp/pest": "^0.3.19",
-        "pestphp/pest-plugin-laravel": "^0.3.0",
+        "pestphp/pest": "^1.0",
+        "pestphp/pest-plugin-faker": "^1.0",
+        "pestphp/pest-plugin-laravel": "^1.0",
         "phpunit/phpunit": "^9.5.0",
         "symplify/easy-coding-standard": "^9.0"
     },

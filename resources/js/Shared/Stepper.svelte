@@ -5,14 +5,10 @@
     export let current = 0;
 </script>
 
-<nav aria-label="Progress">
-    <ol class="overflow-hidden">
+<nav class="flex" aria-label="Progress">
+    <ol class="space-y-6">
         {#each steps as step, key}
-            <StepperItem
-                step="{key + 1}"
-                current="{current}"
-                total="{steps.length}"
-                {...step} />
+            <StepperItem step="{key + 1}" current="{current}" title="{step}" />
         {/each}
     </ol>
 </nav>

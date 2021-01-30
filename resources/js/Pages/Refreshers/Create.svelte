@@ -1,19 +1,120 @@
 <script>
+    import { page } from '@inertiajs/inertia-svelte';
+    import Button from '~/Shared/Button';
+    import FormGroup from '~/Shared/FormGroup';
     import App from '~/Shared/Layouts/App';
-    import InformationStep from '~/Shared/Refreshers/InformationStep';
-    import ItemsStep from '~/Shared/Refreshers/ItemsStep';
-    import SharingStep from '~/Shared/Refreshers/SharingStep';
-    import SkillsStep from '~/Shared/Refreshers/SkillsStep';
     import Sidebar from '~/Shared/Refreshers/Sidebar';
+    import Select from '~/Shared/Select';
+    import Textarea from '~/Shared/Textarea';
+    import TextInput from '~/Shared/TextInput';
+    import { createForm } from '~/stores/form';
+
+    let form = createForm({
+        title: '',
+        description: '',
+        difficulty: 1,
+        skills: [],
+    });
+
+    function save() {
+        form.post(route('refreshers.store'));
+    }
 </script>
 
 <App>
     <div
-        class="mt-8 max-w-3xl mx-auto grid grid-cols-1 gap-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-3">
-        <Sidebar />
+        class="lg:mt-4 max-w-3xl mx-auto px-0 lg:px-16 grid grid-cols-1 gap-6 lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-4">
+        <Sidebar step="{1}" />
 
-        <div class="lg:col-start-2 lg:col-span-2">
-            <InformationStep />
+        <div class="col-start-1 lg:col-start-2 col-span-4 lg:col-span-3">
+            <section aria-labelledby="refresher_information">
+                <form on:submit|preventDefault="{save}">
+                    <div class="shadow sm:rounded-md sm:overflow-hidden">
+                        <div class="bg-white py-6 px-4 sm:p-6">
+                            <div>
+                                <h2
+                                    id="refresher_information"
+                                    class="text-lg leading-6 font-medium text-gray-900">
+                                    Refresher Information
+                                </h2>
+
+                                <p class="mt-1 text-sm text-gray-500">
+                                    Describe the refresher and select the skills
+                                </p>
+                            </div>
+
+                            <div class="mt-6 grid grid-cols-4 gap-6">
+                                <FormGroup
+                                    name="title"
+                                    class="col-span-4 sm:col-span-3 md:col-span-2"
+                                    label="Title"
+                                    error="{$form.errors.title}">
+                                    <TextInput
+                                        name="title"
+                                        value="{$form.title}"
+                                        on:change="{form.handleChange}"
+                                        hasError="{!!$form.errors.title}"
+                                        placeholder="e.g. JavaScript - The hard parts" />
+                                </FormGroup>
+
+                                <FormGroup
+                                    name="description"
+                                    class="col-span-4"
+                                    label="Description"
+                                    description="Markdown is supported"
+                                    error="{$form.errors.description}">
+                                    <Textarea
+                                        name="description"
+                                        value="{$form.description}"
+                                        on:change="{form.handleChange}"
+                                        hasError="{!!$form.errors
+                                            .description}" />
+                                </FormGroup>
+
+                                <FormGroup
+                                    id="difficulty"
+                                    class="col-span-4"
+                                    label="Difficulty"
+                                    error="{$form.errors.difficulty}">
+                                    <Select
+                                        name="difficulty"
+                                        value="{$form.difficulty}"
+                                        on:change="{form.handleChange}"
+                                        hasError="{!!$form.errors.difficulty}">
+                                        {#each $page.props.levels as level}
+                                            <option value="{level.value}">
+                                                {level.description}
+                                            </option>
+                                        {/each}
+                                    </Select>
+                                </FormGroup>
+
+                                <FormGroup
+                                    id="skills"
+                                    class="col-span-4 sm:col-span-3 md:col-span-2"
+                                    label="Skills"
+                                    description="You can select up to 5"
+                                    error="{$form.errors.skills}">
+                                    <TextInput
+                                        name="skills"
+                                        value=""
+                                        on:change="{form.handleChange}"
+                                        hasError="{!!$form.errors.skills}"
+                                        icon="tag" />
+                                </FormGroup>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-5 px-5 sm:px-0">
+                        <div class="flex justify-end">
+                            <Button type="submit" loading="{$form.loading}">
+                                Next
+                            </Button>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
 </App>

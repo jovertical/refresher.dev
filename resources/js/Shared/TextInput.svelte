@@ -11,6 +11,7 @@
     export let icon;
 
     $: props = (({ type, name, hasError, icon, ...other }) => other)($$props);
+    $: hasIcon = !!icon;
 
     function handleChange(event) {
         dispatch('change', {
@@ -21,7 +22,7 @@
 </script>
 
 <div class="relative">
-    {#if icon}
+    {#if hasIcon}
         <div
             class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <FilledIcon class="text-gray-400" name="{icon}" size="small" />
@@ -33,7 +34,7 @@
         use:cx="{{
             'focus:ring-indigo-500 focus:border-indigo-500': !hasError,
             'pr-10 border-red-300 text-red-900 placeholder-red-300 focus:ring-red-500 focus:border-red-500': hasError,
-            'pl-10': !!icon,
+            'pl-10': hasIcon,
         }}"
         id="{name}"
         type="{type}"

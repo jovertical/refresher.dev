@@ -6,6 +6,7 @@ use App\Enums\Level;
 use App\Http\Requests\RefresherRequest;
 use App\Models\Refresher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RefresherController extends Controller
@@ -53,7 +54,11 @@ class RefresherController extends Controller
      */
     public function store(RefresherRequest $request)
     {
-        return back();
+        $refresher = Auth::user()
+            ->refreshers()
+            ->create($request->validated());
+
+        return redirect()->route('refreshers.items.index', $refresher);
     }
 
     /**

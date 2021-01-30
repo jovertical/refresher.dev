@@ -26,12 +26,9 @@ class RefresherRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => [Rule::requiredIf($this->step === 1), 'string', 'max:255'],
-            'description' => ['nullable', 'string', 'max:510'],
-            'difficulty' => [
-                Rule::requiredIf($this->step === 1),
-                Rule::in(Level::getValues())
-            ],
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'min:100', 'max:500'],
+            'difficulty' => ['required', Rule::in(Level::getValues())],
         ];
     }
 }
