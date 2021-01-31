@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Enums\Level;
 use App\Http\Requests\RefresherRequest;
 use App\Models\Refresher;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
@@ -80,19 +79,24 @@ class RefresherController extends Controller
      */
     public function edit(Refresher $refresher)
     {
-        //
+        return Inertia::render('Refreshers/Edit', [
+            'refresher' => $refresher,
+            'levels' => array_values(Level::getInstances())
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\RefresherRequest  $request
      * @param  \App\Models\Refresher  $refresher
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Refresher $refresher)
+    public function update(RefresherRequest $request, Refresher $refresher)
     {
-        //
+        $refresher->update($request->validated());
+
+        return redirect()->route('refreshers.items.index', $refresher);
     }
 
     /**

@@ -5,7 +5,7 @@ use App\Models\Refresher;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use function Pest\Faker\faker;
-use function Pest\Laravel\{get, post};
+use function Pest\Laravel\{get, patch, post};
 use function Tests\login;
 
 uses(RefreshDatabase::class);
@@ -49,4 +49,24 @@ test('users can view a specified refresher', function () {
     get(route('refreshers.show', $refresher))
         ->assertInertia('Refreshers/Show')
         ->assertInertiaHas('refresher');
+});
+
+test('users can update a refresher', function () {
+    $refresher = Refresher::factory()->create(['user_id' => $this->user->id]);
+
+    get(route('refreshers.edit', $refresher))
+        ->assertInertia('Refreshers/Edit')
+        ->assertInertiaHas(['levels', 'refresher']);
+
+    $response = patch(route('refreshers.update', $refresher), [
+        'title' => 'JavaScript - The Hard Parts 2021 Edition',
+        'description' => faker()->paragraph,
+        'difficulty' => faker()->randomElement(Level::getValues())
+    ]);
+
+    $response->assertRedirect(route('refreshers.items.index', $refresher));
+
+    test()->assertDatabaseHas('refreshers', [
+        'title' => 'JavaScript - The Hard Parts 2021 Edition'
+    ]);
 });

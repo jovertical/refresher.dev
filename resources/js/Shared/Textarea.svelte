@@ -19,12 +19,12 @@
 </script>
 
 <textarea
-    id="{name}"
     class="max-w-none sm:max-w-lg shadow-sm block w-full sm:text-sm rounded-md {$$props.class}"
     use:cx="{{
         'focus:ring-indigo-500 focus:border-indigo-500 border-gray-300': !hasError,
         'border-red-300 text-red-900 focus:ring-red-500 focus:border-red-500': hasError,
     }}"
+    id="{name}"
     name="{name}"
     rows="{rows}"
     {...props}

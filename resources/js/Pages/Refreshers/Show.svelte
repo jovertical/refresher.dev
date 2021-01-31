@@ -2,6 +2,8 @@
     import Button from '~/Shared/Button';
     import App from '~/Shared/Layouts/App';
 
+    let { route } = window;
+
     export let refresher = {};
 </script>
 
@@ -28,7 +30,10 @@
 
         <div
             class="mt-6 flex flex-col-reverse justify-stretch space-y-4 space-y-reverse sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3">
-            <Button variant="secondary">Edit</Button>
+            <Button
+                type="link"
+                path="{route('refreshers.edit', refresher)}"
+                variant="secondary">Edit</Button>
             <Button>Take</Button>
         </div>
     </div>

@@ -2,6 +2,10 @@
     import Button from '~/Shared/Button';
     import App from '~/Shared/Layouts/App';
     import Sidebar from '~/Shared/Refreshers/Sidebar';
+
+    let { route } = window;
+
+    export let refresher = {};
 </script>
 
 <App>
@@ -19,7 +23,10 @@
 
                 <div class="pt-5 px-5 sm:px-0">
                     <div class="flex justify-end">
-                        <Button variant="secondary">Prev</Button>
+                        <Button
+                            type="link"
+                            path="{route('refreshers.edit', refresher)}"
+                            variant="secondary">Prev</Button>
                         <Button class="ml-3">Next</Button>
                     </div>
                 </div>
